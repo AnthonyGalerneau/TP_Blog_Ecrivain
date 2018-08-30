@@ -1,3 +1,11 @@
+body, html{
+	width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
 h1, h2, h3, p{
 	font-family: arial;
 	text-align: center;
@@ -35,6 +43,80 @@ a{
 
 #formulaire_commentaire{
 	margin-top: 50px;
+}
+
+.login{
+	margin-top: 100px;
+	height: 30px;
+	width: 100%;
+	background-color: black;
+}
+
+.login a{
+	text-decoration: none;
+	color: white;
+}
+
+.login a:hover{
+	text-decoration: line-through;
+	color: white;
+}
+
+
+
+.loginform p{
+	display: block;
+	text-align: center;
+	margin: 50px 0 50px 0;
+	color:  #e54630;
+}
+
+
+.loginform form{
+	width: 250px;
+	padding: 50px 50px 40px 50px;
+	margin: 50 auto;
+	text-align: center;
+	border:1px solid;
+ 	border-radius:5px;
+}
+
+.loginform legend{
+	margin-top: -60px;
+	margin-bottom: 30px;
+	background-color: white;
+	padding-left: 5px;
+	width: 120px;
+	color: #e54630;
+}
+
+.loginform input{
+
+	width: 220px;
+	margin-bottom: 10px;
+}
+
+.loginform label{
+	text-align: left;
+	padding-left: 10px;
+	margin-bottom: 10px;
+	display: block;
+}
+
+.loginform button{
+	background-color: white;
+	color: #e54630;
+	padding: 10px;
+	margin-top: 10px;
+	border:1px solid #e54630 ;
+	border-radius:5px;
+	cursor: pointer;
+}
+
+.loginform button:hover{
+	background-color:#e54630;
+	color: white;
+	border:1px solid white;
 }
 
 

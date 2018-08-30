@@ -3,6 +3,8 @@
 // Chargement des classes
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
+require_once('model/LoginManager.php');
+
 
 function listPosts()
 {
@@ -66,6 +68,13 @@ function addModifComment($postId, $id, $author, $comment)
     {
         header('Location: index.php?action=post&id=' . $postId);
     }
+}
+
+function loginForm()
+{
+    $loginManager = new \AnthonyGalerneau\Blog\Model\LoginManager();
+    $login = $loginManager->loginForm();
+    require('view/frontend/loginView.php');
 }
 
 
