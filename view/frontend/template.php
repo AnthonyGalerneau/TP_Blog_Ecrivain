@@ -14,7 +14,7 @@
 
         <footer>
             <div class="login">
-                <p><a href="connexion.php">Connexion Admin</a></p>
+                <p><a href="index.php?action=login">Connexion Admin</a></p>
             </div>
         </footer>
     </body>

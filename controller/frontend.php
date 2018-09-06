@@ -3,7 +3,7 @@
 // Chargement des classes
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
-require_once('model/LoginManager.php');
+require_once('model/ConnexionManager.php');
 
 
 function listPosts()
@@ -70,11 +70,34 @@ function addModifComment($postId, $id, $author, $comment)
     }
 }
 
-function loginForm()
+function login()
 {
-    $loginManager = new \AnthonyGalerneau\Blog\Model\LoginManager();
-    $login = $loginManager->loginForm();
-    require('view/frontend/loginView.php');
+    $connexionManager = new \AnthonyGalerneau\Blog\Model\ConnexionManager();
+    $resultat = $connexionManager->getLog(); 
+ 
+    if (isset($_POST['pseudo']) && isset($_POST['pass'])) 
+    {
+        // Comparaison du pass envoyé via le formulaire avec la base
+        $isPasswordCorrect = password_verify($_POST['pass'], $resultat['pass']);
+        if (!$resultat)
+        {
+            echo '<p>Mauvais identifiant ou mot de passe !<br> <a href="index.php"> essayez à nouveau</a></p>';
+        }
+        else
+        {
+            if ($isPasswordCorrect) {
+                session_start();
+                $_SESSION['id'] = $resultat['id'];
+                $_SESSION['pseudo'] = $_POST['pseudo'];
+                echo '<p>Vous êtes connecté !</p>';
+            }
+            else {
+                echo '<p>Mauvais identifiant ou mot de passe !</p>';
+            }
+        }
+    }
+    require('view/frontend/connexionView.php');
+
 }
 
 
