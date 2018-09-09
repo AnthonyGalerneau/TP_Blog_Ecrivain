@@ -71,6 +71,18 @@ try {
         {
             admin();
         }
+        elseif ($_GET['action'] == 'listPostsAdmin') {
+            listPostsAdmin();
+        }
+        elseif ($_GET['action'] == 'postAdmin') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                postAdmin();
+            }
+            else {
+                 // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }
+        }
     } else {
         listPosts();
     }  

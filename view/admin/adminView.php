@@ -9,12 +9,12 @@ $title = htmlspecialchars('Admin'); ?>
 
  <p>Bienvenue dans l'administration du Blog !</p>
 
- 
+
 <div class="menuAdmin">
     <h2>Ici vous pouvez :</h2>
 
     <h3>Créer un nouveau billet</h3>
-    <h3>Editer vos Billets </h3>
+    <h3><a href="index.php?action=listPostsAdmin">Editer vos Billets</a></h3>
     <h3>supprimer des commentaires</h3>
 
 </div>

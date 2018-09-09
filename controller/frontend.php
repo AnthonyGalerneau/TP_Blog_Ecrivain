@@ -5,6 +5,7 @@ require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/ConnexionManager.php');
 require_once('model/AdminManager.php');
+require_once('model/AdminPostManager.php');
 
 function listPosts()
 {
@@ -108,6 +109,24 @@ function admin()
     
     require('view/admin/adminView.php');
 
+}
+
+function listPostsAdmin()
+{
+    $adminPostManager = new \AnthonyGalerneau\Blog\Model\AdminPostManager(); 
+    $posts = $adminPostManager->getPostsAdmin(); 
+
+
+    require('view/admin/listPostsViewAdmin.php');
+}
+
+function postAdmin()
+{
+    $adminPostManager = new \AnthonyGalerneau\Blog\Model\AdminPostManager();
+
+    $post = $adminPostManager->getPostAdmin($_GET['id']);
+
+    require('view/admin/listPostsViewAdmin.php');
 }
 
 
