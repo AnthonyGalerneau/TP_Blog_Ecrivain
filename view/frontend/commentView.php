@@ -1,4 +1,4 @@
-<?php ob_start(); ?>
+
 Modifier le commentaire
 <?php $title = ob_get_clean(); ?>
 

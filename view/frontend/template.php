@@ -14,7 +14,20 @@
 
         <footer>
             <div class="login">
-                <p><a href="index.php?action=login">Connexion Admin</a></p>
+                <?php
+                //if(session_id() == "") {
+                    ?>
+                    <p><a href="index.php?action=login">Admin</a></p>
+                <?php  
+                //} 
+                //else
+                //{
+                ?>
+                   <!-- <p><a href="index.php?action=logout">Déconnexion</a></p> -->
+               <?php
+                //}
+                ?>
+                
             </div>
         </footer>
     </body>

@@ -4,7 +4,7 @@
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/ConnexionManager.php');
-
+require_once('model/AdminManager.php');
 
 function listPosts()
 {
@@ -76,7 +76,7 @@ function login()
     $resultat = $connexionManager->getLog(); 
  
     if (isset($_POST['pseudo']) && isset($_POST['pass'])) 
-    {
+    {   
         // Comparaison du pass envoyé via le formulaire avec la base
         $isPasswordCorrect = password_verify($_POST['pass'], $resultat['pass']);
         if (!$resultat)
@@ -85,8 +85,8 @@ function login()
         }
         else
         {
-            if ($isPasswordCorrect) {
-                session_start();
+            if ($isPasswordCorrect) 
+            {
                 $_SESSION['id'] = $resultat['id'];
                 $_SESSION['pseudo'] = $_POST['pseudo'];
                 echo '<p>Vous êtes connecté !</p>';
@@ -99,6 +99,17 @@ function login()
     require('view/frontend/connexionView.php');
 
 }
+
+function admin()
+{
+    $adminManager = new \AnthonyGalerneau\Blog\Model\AdminManager();
+    $req = $adminManager->admin(); 
+ 
+    
+    require('view/admin/adminView.php');
+
+}
+
 
 
 

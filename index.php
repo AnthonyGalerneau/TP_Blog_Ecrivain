@@ -1,10 +1,22 @@
+
 <?php
+
+session_start();
+
 require('controller/frontend.php');
 
 try {
 
     if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'listPosts') {
+        if ($_GET['action'] == 'login') {
+            login();
+        }
+        elseif ($_GET['action'] == 'logout') {
+            session_start();
+            session_destroy();
+            header('Location: index.php');
+        }
+        elseif ($_GET['action'] == 'listPosts') {
             listPosts();
         }
         elseif ($_GET['action'] == 'post') {
@@ -55,8 +67,9 @@ try {
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
-        elseif ($_GET['action'] == 'login') {
-            login();
+        elseif ($_GET['action'] == 'admin')
+        {
+            admin();
         }
     } else {
         listPosts();
