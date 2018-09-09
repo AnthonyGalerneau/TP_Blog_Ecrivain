@@ -116,17 +116,49 @@ function listPostsAdmin()
     $adminPostManager = new \AnthonyGalerneau\Blog\Model\AdminPostManager(); 
     $posts = $adminPostManager->getPostsAdmin(); 
 
-
     require('view/admin/listPostsViewAdmin.php');
 }
 
-function postAdmin()
+function modifPost($id)
 {
-    $adminPostManager = new \AnthonyGalerneau\Blog\Model\AdminPostManager();
+    $adminPostManager = new \AnthonyGalerneau\Blog\Model\AdminPostManager(); 
 
-    $post = $adminPostManager->getPostAdmin($_GET['id']);
+    $editPost = $adminPostManager->getModifPost($id);
+    $post = $editPost->fetch();
+    if ($post === false) 
+    {
+        throw new Exception('billet introuvable !');
+    } else {
+        require('view/admin/editPostView.php');
+    }
+}
 
-    require('view/admin/listPostsViewAdmin.php');
+function addModifPost($id, $title, $content)
+{
+    $adminPostManager = new \AnthonyGalerneau\Blog\Model\AdminPostManager(); 
+    $req = $adminPostManager->addModifPost($id, $title, $content); 
+
+   if ($req === false) 
+   {
+        throw new Exception('Impossible de modifier le billet !');
+    } else 
+    {
+        header('Location: index.php?action=listPostsAdmin');
+    }
+}
+
+function addpost($id, $title, $content)
+{
+    $adminPostManager = new \AnthonyGalerneau\Blog\Model\AdminPostManager(); 
+
+    $affectedLines = $adminPostManager->newPost($id, $title, $content);
+
+    if ($affectedLines === false) {
+        throw new Exception('Impossible d\'ajouter le billet !');
+    }
+    else {
+        header('Location: index.php');
+    }
 }
 
 

@@ -74,15 +74,39 @@ try {
         elseif ($_GET['action'] == 'listPostsAdmin') {
             listPostsAdmin();
         }
-        elseif ($_GET['action'] == 'postAdmin') {
+        elseif ($_GET['action'] == 'modifPostAdmin') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                postAdmin();
-            }
-            else {
-                 // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
+                modifPost($_GET['id']);
+            } else {
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
+            
         }
+        elseif ($_GET['action'] == 'addModifPost') {  
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                    addModifPost($_GET['id'], $_POST['title'], $_POST['content']);
+                } else {
+                    throw new Exception('Tous les champs ne sont pas remplis !');
+                }
+            } else {
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }  
+        }
+        elseif ($_GET['action'] == 'newPost') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                    addComment($_GET['id'], $_POST['title'], $_POST['content']);
+                }
+                else {
+                    throw new Exception('Tous les champs ne sont pas remplis !');
+                }
+            }
+            else {
+                 throw new Exception('Aucun identifiant de billet envoyé');
+            }
+        }
+       
     } else {
         listPosts();
     }  

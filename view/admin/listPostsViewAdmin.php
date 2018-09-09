@@ -1,7 +1,9 @@
-<?php $title = 'Mon blog'; ?>
+<?php $title = 'Editeur de billets'; ?>
 
 <?php ob_start(); ?>
-<p>Derniers billets du blog :</p>
+<h3>Vos derniers billets</h3>
+
+<p><a href="index.php?action=admin"> Retour à l'accueil de l'administration</a></p>
 
 
 <?php
@@ -17,7 +19,7 @@ while ($data = $posts->fetch())
         <p>
             <?= nl2br(htmlspecialchars($data['content'])) ?>
             <br />
-            <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
+            <em><a href="index.php?action=modifPostAdmin&amp;id=<?= $data['id'] ?>">Editer</a></em>
         </p>
     </div>
 <?php
