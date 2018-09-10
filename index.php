@@ -85,7 +85,7 @@ try {
         elseif ($_GET['action'] == 'addModifPost') {  
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['title']) && !empty($_POST['content'])) {
-                    addModifPost($_GET['id'], $_POST['title'], $_POST['content']);
+                    getModifPost($_GET['id'], $_POST['title'], $_POST['content']);
                 } else {
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
@@ -94,16 +94,14 @@ try {
             }  
         }
         elseif ($_GET['action'] == 'newPost') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                if (!empty($_POST['title']) && !empty($_POST['content'])) {
-                    addComment($_GET['id'], $_POST['title'], $_POST['content']);
-                }
-                else {
-                    throw new Exception('Tous les champs ne sont pas remplis !');
-                }
+            newPost(); 
+        }
+        elseif ($_GET['action'] == 'addNewPost') {
+            if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                addNewPost($_GET['id'], $_POST['title'], $_POST['content']);
             }
             else {
-                 throw new Exception('Aucun identifiant de billet envoyé');
+                throw new Exception('Tous les champs ne sont pas remplis !');
             }
         }
        

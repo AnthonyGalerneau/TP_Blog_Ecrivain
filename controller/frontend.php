@@ -133,7 +133,7 @@ function modifPost($id)
     }
 }
 
-function addModifPost($id, $title, $content)
+function getModifPost($id, $title, $content)
 {
     $adminPostManager = new \AnthonyGalerneau\Blog\Model\AdminPostManager(); 
     $req = $adminPostManager->addModifPost($id, $title, $content); 
@@ -147,11 +147,20 @@ function addModifPost($id, $title, $content)
     }
 }
 
-function addpost($id, $title, $content)
+function newPost()
+{
+    $adminPostManager = new \AnthonyGalerneau\Blog\Model\AdminPostManager();
+    $req = $adminPostManager->newPost(); 
+ 
+    
+    require('view/admin/newPostView.php');
+}
+
+function addNewPost($id, $title, $content)
 {
     $adminPostManager = new \AnthonyGalerneau\Blog\Model\AdminPostManager(); 
 
-    $affectedLines = $adminPostManager->newPost($id, $title, $content);
+    $affectedLines = $adminPostManager->addNewPost($id, $title, $content);
 
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter le billet !');

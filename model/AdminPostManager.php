@@ -30,7 +30,15 @@ class AdminPostManager extends Manager
         return $req;
     }
 
-    public function newPost($id, $title, $content)
+    public function newPost()
+	{
+		$db = $this->dbConnect();
+        $req = $db->query('SELECT title, content  FROM posts ');
+
+	    return $req;
+	}
+
+    public function addNewPost($id, $title, $content)
 	{
 	    $db = $this->dbConnect();
 	    $post = $db->prepare('INSERT INTO posts(id, title, content, creation_date) VALUES(?, ?, ?, NOW())');
