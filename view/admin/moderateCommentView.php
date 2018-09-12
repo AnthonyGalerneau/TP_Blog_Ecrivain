@@ -2,7 +2,7 @@ Modérer les commentaires
 <?php $title = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
-<p><a href="index.php?action=listPostsAdmin">Retour à la liste des billets</a></p>
+<p><a href="index.php?action=admin"> Retour à l'accueil de l'administration</a></p>
  
  
 <h2>Modérer les commentaires</h2>
@@ -16,7 +16,7 @@ while ($comment = $comments->fetch())
 <div class="affichComment">
     <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
     <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-    <p><a href="">Valider</a></p> <p><a href="">Supprimer</a></p>
+    <p><a href="index.php?action=validComment&amp;valid=<?=$comment['id'] ?>">Valider</a> - <a href="index.php?action=deleteComment&amp;delete=<?=$comment['id'] ?>">Supprimer</a></p>
 </div>
 
 <?php

@@ -57,4 +57,22 @@ class CommentManager extends Manager
 
 	    return $comments;
 	}
+
+	public function validComment()
+	{
+		$valid = (int) $_GET['valid'];
+	    $db = $this->dbConnect();
+	    $req = $db->prepare('UPDATE comments SET moderate = 0 WHERE id = ?');
+	    $req->execute(array($valid));
+	    
+	}
+
+	public function deleteComment()
+	{
+		$delete = (int) $_GET['delete'];
+	    $db = $this->dbConnect();
+	    $req = $db->prepare('DELETE FROM comments WHERE id = ?');
+	    $req->execute(array($delete));
+	    
+	}
 }

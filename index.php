@@ -118,6 +118,22 @@ try {
             moderateComment();
             
         }
+        elseif ($_GET['action'] == 'validComment') {
+            if(isset($_GET['valid']) AND !empty($_GET['valid'])){
+                validComment();
+            } else 
+            { 
+                throw new Exception('Non !');
+            }
+        }
+        elseif ($_GET['action'] == 'deleteComment') {
+            if(isset($_GET['delete']) AND !empty($_GET['delete'])){
+                deleteComment();
+            } else 
+            { 
+                throw new Exception('Non !');
+            }
+        }
        
     } else {
         listPosts();

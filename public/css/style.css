@@ -64,7 +64,7 @@ a{
 
 
 
-.loginform p{
+.loginform p, #formulaire_commentaire p{
 	display: block;
 	text-align: center;
 	margin: 50px 0 50px 0;
@@ -72,7 +72,7 @@ a{
 }
 
 
-.loginform form{
+.loginform form, #formulaire_commentaire form{
 	width: 250px;
 	padding: 50px 50px 40px 50px;
 	margin: auto;
@@ -90,20 +90,20 @@ a{
 	color: #e54630;
 }
 
-.loginform input{
+.loginform input, #formulaire_commentaire input{
 
 	width: 220px;
 	margin-bottom: 10px;
 }
 
-.loginform label{
+.loginform label, #formulaire_commentaire label{
 	text-align: left;
 	padding-left: 10px;
 	margin-bottom: 10px;
 	display: block;
 }
 
-.loginform button{
+.loginform button, #formulaire_commentaire button{
 	background-color: white;
 	color: #e54630;
 	padding: 10px;
@@ -113,7 +113,7 @@ a{
 	cursor: pointer;
 }
 
-.loginform button:hover{
+.loginform button:hover,  #formulaire_commentaire button:hover{
 	background-color:#e54630;
 	color: white;
 	border:1px solid white;

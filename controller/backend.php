@@ -79,10 +79,27 @@ function moderateComment()
     $commentManager = new \AnthonyGalerneau\Blog\Model\CommentManager();
     $comments = $commentManager->getCommentsAdmin();
 
-    if ($affectedLines === false) {
+    if ($comments === false) {
         throw new Exception('Impossible de signaler le commentaire!');
     }
     else {
         require('view/admin/moderateCommentView.php');
     }
+}
+
+function validComment()
+{
+    $commentManager = new \AnthonyGalerneau\Blog\Model\CommentManager();
+    $comment = $commentManager->validComment();
+
+    header('Location: index.php?action=moderateComment');
+}
+
+
+function deleteComment()
+{
+    $commentManager = new \AnthonyGalerneau\Blog\Model\CommentManager();
+    $comment = $commentManager->deleteComment();
+
+    header('Location: index.php?action=moderateComment');
 }
