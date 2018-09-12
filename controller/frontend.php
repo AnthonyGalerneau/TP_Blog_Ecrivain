@@ -4,7 +4,6 @@
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/ConnexionManager.php');
-require_once('model/AdminPostManager.php');
 
 function listPosts()
 {
@@ -107,15 +106,15 @@ function admin()
 
 function listPostsAdmin()
 {
-    $adminPostManager = new \AnthonyGalerneau\Blog\Model\AdminPostManager(); 
-    $posts = $adminPostManager->getPostsAdmin(); 
+    $adminPostManager = new \AnthonyGalerneau\Blog\Model\PostManager(); 
+    $posts = $adminPostManager->getPosts(); 
 
     require('view/admin/listPostsViewAdmin.php');
 }
 
 function modifPost($id)
 {
-    $adminPostManager = new \AnthonyGalerneau\Blog\Model\AdminPostManager(); 
+    $adminPostManager = new \AnthonyGalerneau\Blog\Model\PostManager(); 
 
     $editPost = $adminPostManager->getModifPost($id);
     $post = $editPost->fetch();
@@ -129,7 +128,7 @@ function modifPost($id)
 
 function addModifPost($id, $title, $content)
 {
-    $adminPostManager = new \AnthonyGalerneau\Blog\Model\AdminPostManager(); 
+    $adminPostManager = new \AnthonyGalerneau\Blog\Model\PostManager(); 
     $req = $adminPostManager->addModifPost($id, $title, $content); 
 
    if ($req === false) 
@@ -148,7 +147,7 @@ function newPost()
 
 function addNewPost($id, $title, $content)
 {
-    $adminPostManager = new \AnthonyGalerneau\Blog\Model\AdminPostManager(); 
+    $adminPostManager = new \AnthonyGalerneau\Blog\Model\PostManager(); 
 
     $affectedLines = $adminPostManager->addNewPost($id, $title, $content);
 
