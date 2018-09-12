@@ -15,7 +15,7 @@ $title = htmlspecialchars('Admin'); ?>
 
     <h3><a href="index.php?action=newPost">Créer un nouveau billet</h3>
     <h3><a href="index.php?action=listPostsAdmin">Editer vos Billets</a></h3>
-    <h3>supprimer des commentaires</h3>
+    <h3><a href="index.php?action=moderateComment">Modération des commentaires</h3>
 
 </div>
     

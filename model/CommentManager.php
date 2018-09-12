@@ -39,4 +39,22 @@ class CommentManager extends Manager
         $req->execute(array($author, $comment, $id, $postId));
         return $req;
     }
+
+    public function reportComment()
+	{
+		$moderate = (int) $_GET['moderate'];
+	    $db = $this->dbConnect();
+	    $req = $db->prepare('UPDATE comments SET moderate = 1 WHERE id = ?');
+	    $req->execute(array($moderate));
+	    
+	}
+
+    public function getCommentsAdmin()
+	{
+	    $db = $this->dbConnect();
+	    $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr, moderate FROM comments WHERE moderate = "1" ORDER BY comment_date DESC LIMIT 0, 5');
+	    $comments->execute(array());
+
+	    return $comments;
+	}
 }

@@ -4,6 +4,7 @@
 session_start();
 
 require('controller/frontend.php');
+require('controller/backend.php');
 
 try {
 
@@ -103,6 +104,19 @@ try {
             else {
                 throw new Exception('Tous les champs ne sont pas remplis !');
             }
+        }
+        elseif ($_GET['action'] == 'reportComment') {
+            if(isset($_GET['moderate']) AND !empty($_GET['moderate'])){
+                moderate();
+            } else 
+            { 
+                throw new Exception('Non !');
+            }
+        }
+        elseif ($_GET['action'] == 'moderateComment')
+        {   
+            moderateComment();
+            
         }
        
     } else {
