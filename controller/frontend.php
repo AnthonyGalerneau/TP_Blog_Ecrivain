@@ -4,7 +4,6 @@
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/ConnexionManager.php');
-require_once('model/AdminManager.php');
 require_once('model/AdminPostManager.php');
 
 function listPosts()
@@ -102,13 +101,8 @@ function login()
 }
 
 function admin()
-{
-    $adminManager = new \AnthonyGalerneau\Blog\Model\AdminManager();
-    $req = $adminManager->admin(); 
- 
-    
+{  
     require('view/admin/adminView.php');
-
 }
 
 function listPostsAdmin()
@@ -133,7 +127,7 @@ function modifPost($id)
     }
 }
 
-function getModifPost($id, $title, $content)
+function addModifPost($id, $title, $content)
 {
     $adminPostManager = new \AnthonyGalerneau\Blog\Model\AdminPostManager(); 
     $req = $adminPostManager->addModifPost($id, $title, $content); 
@@ -149,10 +143,6 @@ function getModifPost($id, $title, $content)
 
 function newPost()
 {
-    $adminPostManager = new \AnthonyGalerneau\Blog\Model\AdminPostManager();
-    $req = $adminPostManager->newPost(); 
- 
-    
     require('view/admin/newPostView.php');
 }
 

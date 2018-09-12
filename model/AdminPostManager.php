@@ -26,17 +26,9 @@ class AdminPostManager extends Manager
     {
         $db = $this->dbConnect();
         $req= $db->prepare('UPDATE posts SET title = ?, content = ? WHERE id = ?');
-        $req->execute(array($id, $title, $content));
+        $req->execute(array($title, $content, $id));
         return $req;
     }
-
-    public function newPost()
-	{
-		$db = $this->dbConnect();
-        $req = $db->query('SELECT title, content  FROM posts ');
-
-	    return $req;
-	}
 
     public function addNewPost($id, $title, $content)
 	{
