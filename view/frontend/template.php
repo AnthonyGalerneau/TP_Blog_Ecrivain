@@ -7,27 +7,14 @@
     </head>
         
     <body>
-        <?= 
-        '<h1>Billet simple pour l\'Alaska</h1>
-		<h2>Jean Forteroche</h2>' 
-		. $content ?>
+        <section id="content">
+            <?= $content ?>
+        </section>
+		
 
         <footer>
             <div class="login">
-                <?php
-                //if(session_id() == "") {
-                    ?>
                     <p><a href="index.php?action=login">Admin</a></p>
-                <?php  
-                //} 
-                //else
-                //{
-                ?>
-                   <!-- <p><a href="index.php?action=logout">Déconnexion</a></p> -->
-               <?php
-                //}
-                ?>
-                
             </div>
         </footer>
     </body>

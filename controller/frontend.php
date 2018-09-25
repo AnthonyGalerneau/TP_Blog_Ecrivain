@@ -9,6 +9,7 @@ function listPosts()
 {
     $postManager = new \AnthonyGalerneau\Blog\Model\PostManager(); // Création d'un objet
     $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
+    
 
     require('view/frontend/listPostsView.php');
 }
@@ -23,6 +24,7 @@ function post()
 
     require('view/frontend/postView.php');
 }
+
 
 function addComment($postId, $author, $comment)
 {

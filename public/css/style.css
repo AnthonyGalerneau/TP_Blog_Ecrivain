@@ -5,15 +5,17 @@ body, html{
     margin: 0;
 }
 
+body{
+	background-color: #c2d6f6;
+}
+
 
 h1, h2, h3, p{
 	font-family: arial;
 	text-align: center;
 }
 
-h1{
-	font-size: 30px;
-}
+
 
 h3{
 	font-size: 18px;
@@ -23,106 +25,633 @@ p{
 	font-size: 15px;
 }
 
-header{
-	margin-bottom: 100px;
+/********************************* HEADER *********************************/
+
+header .imageHeader{
+	background-size: cover;
+ 	width: 100%;
+ 	height: 800px;
+ 	background-position: center;
+ 	margin: auto;
 }
 
-.post{
-	margin-top: 50px;
+header .imageHeader img{
+	display: none;
 }
 
-a{
-	display: block;
-	margin-top: 20px;
-	text-decoration: none;
-}
-
-.affichComment a {
-	display: inline;
-}
-
-#formulaire_commentaire{
-	margin-top: 50px;
-}
-
-.login{
-	margin-top: 100px;
-	height: 30px;
+header .titre{
+	margin-top: -24%;
 	width: 100%;
-	background-color: black;
+	position: absolute;
 }
 
-.login a{
+header h1, header h2{
+	color: white;
+	text-shadow: 3px 3px 10px #022645;
+}
+
+header h1{
+	text-transform: uppercase; 
+	font-size: 60px;
+	margin: 0px;
+}
+
+header h2{
+	font-size: 30px;
+	margin: 20px;
+}
+
+header hr{
+	width: 30%;
+}
+
+/********************************* ACCUEIL *********************************/
+
+.titreAccueil{
+	text-transform: uppercase; 
+	color: white; 
+	font-size: 25px;
+}
+
+#Edito{
+	margin-top: -10px;
+	padding: 30px 0 70px 0;
+	background-color: white;
+}
+
+#Edito .titreAccueil{
+	color: #c2d6f6;
+}
+
+.texteEdito p{
+ 	width: 60%;
+ 	margin: auto;
+ 	color: #1863a2;
+}
+
+
+#articles{
+	padding-top: 50px;
+	width: 70%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.news {
+	width: 260px;
+	position: relative;
+	margin: 7px 10px 7px 10px;
+	box-shadow: 0px 0px 3px #618cadad ;
+	background-color: white;
+	
+}
+
+.news .imageBilletAccueil{
+	background-size: cover;
+ 	width: 260px;
+ 	height: 200px;
+ 	border-bottom: 2px #c2d6f6 solid;
+}
+
+.news .imageBilletAccueil img{
+	display: none;
+}
+
+.news .extraitBilletAccueil{
+	padding: 10px;
+}
+
+
+.news .extraitBilletAccueil a{
+	color: black;
 	text-decoration: none;
-	color: white;
 }
 
-.login a:hover{
+.news:hover{ 
+	background-color: white;
+	box-shadow: 0px 0px 3px white ;
+}
+
+.news:hover .date{
+	color:  #c2d6f6;
+}
+
+.news:hover a{
+	color: #1863a2;
+}
+
+.news .extraitBilletAccueil .date{
+	margin-top: -15px;
+	font-size: 12px;
+}
+
+
+/********************************* Billet *********************************/
+
+.lienRetour{
+	margin-top: -5px;
+	padding: 30px 0 30px 0;
+	width: 100%;
+	background-color: white;
+}
+
+.lienRetour a{
+	text-decoration: none;
+	color: #c2d6f6;
+	font-size: 25px;
+}
+
+.lienRetour a:hover{
 	text-decoration: line-through;
+	color: #1863a2;
+}
+
+.billet{
+	margin: auto;
+	width: 90%;
+}
+
+.billet .date{
 	color: white;
 }
 
+.billet .content{
+	background-color: white;
+	padding: 80px;
+}
 
+.comment{
+	margin: auto;
+	width: 50%;
+}
 
-.loginform p, #formulaire_commentaire p{
+.comment h3{
+	margin-top: 50px;
+	color: white;
+}
+
+.comment .affichComment{
+	background-color: white;
+	padding: 30px;
+}
+
+.comment .affichComment .headComment{
+	padding: 10px;
+	background-color: #c2d6f6;
+}
+.comment .affichComment .headComment p{
+	text-align: left;
+	color: white;
+}
+
+.comment .affichComment .headComment a{
+	text-decoration: none;
+	color: #1863a2;
+}
+
+.comment .affichComment .headComment a:hover{
+	text-decoration: line-through;
+}
+
+.comment .affichComment .contentComment p{
+	text-align: left;
+	color: #1863a2;
+}
+
+.comment .affichComment .signalement a{
+	font-size: 10px;
+	color: red;
+}
+
+.comment #formComment p{
 	display: block;
 	text-align: center;
-	margin: 50px 0 50px 0;
-	color:  #e54630;
+
+	color: #1863a2;
 }
 
 
-.loginform form, #formulaire_commentaire form{
+.comment #formComment form{
+	margin-top: 50px;
+	text-align: center;
+}
+
+.comment #formComment input{
+	padding: 5px;
+}
+
+.comment #formComment input, .comment #formComment textarea{
+	border-radius: 4px;
+	border:1px solid #1863a2;
+}
+
+.comment #formComment button{
+	background-color: white;
+	color: #1863a2;
+	padding: 10px 30px;
+	margin-top: 10px;
+	border:1px solid #1863a2;
+	border-radius:5px;
+	cursor: pointer;
+}
+
+.comment #formComment button:hover{
+	background-color:#1863a2;
+	color: white;
+	border:1px solid #1863a2;
+}
+
+/********************************* Page Login *********************************/
+
+
+.loginTitre{
+	padding: 30px 0;
+	width: 100%;
+	background-color: #1863a2;
+}
+
+.loginTitre h1, .loginTitre h2{
+	color: white;
+	text-shadow: 3px 3px 10px #022645;
+}
+
+.loginTitre h1{
+	text-transform: uppercase; 
+	font-size: 60px;
+	margin: 0px;
+}
+
+.loginTitre h2{
+	font-size: 30px;
+	margin-top: 20px;
+}
+
+.loginTitre hr{
+	width: 30%;
+}
+
+.loginform{
+	width: 100%;
+}
+
+.loginform a{
+	background-color: white;
+	padding: 30px;
+	display: block;
+	margin: -20px 0 60px 0;
+	text-decoration: none;
+	color: #c2d6f6;
+	font-size: 25px;
+}
+
+.loginform a:hover{
+	text-decoration: line-through;
+	color: #1863a2;
+}
+
+
+.loginform p{
+	display: block;
+	text-align: center;
+	color:  #c2d6f6;
+}
+
+
+.loginform form{
 	width: 250px;
+	background-color: white;
 	padding: 50px 50px 40px 50px;
 	margin: auto;
 	text-align: center;
-	border:1px solid;
+	border:1px solid #1863a2;
  	border-radius:5px;
 }
 
 .loginform legend{
-	margin-top: -60px;
+
 	margin-bottom: 30px;
 	background-color: white;
 	padding-left: 5px;
-	width: 120px;
-	color: #e54630;
+	color: #1863a2;
 }
 
-.loginform input, #formulaire_commentaire input{
-
+.loginform input{
+	border-radius: 4px;
+	border:1px solid #1863a2;
+	padding: 5px;
 	width: 220px;
-	margin-bottom: 10px;
+	
 }
 
-.loginform label, #formulaire_commentaire label{
+.loginform label{
 	text-align: left;
 	padding-left: 10px;
 	margin-bottom: 10px;
 	display: block;
 }
 
-.loginform button, #formulaire_commentaire button{
+.loginform button{
 	background-color: white;
-	color: #e54630;
+	color: #1863a2;
 	padding: 10px;
 	margin-top: 10px;
-	border:1px solid #e54630 ;
+	border:1px solid #1863a2 ;
 	border-radius:5px;
 	cursor: pointer;
 }
 
-.loginform button:hover,  #formulaire_commentaire button:hover{
-	background-color:#e54630;
+.loginform button:hover{
+	background-color:#1863a2;
 	color: white;
 	border:1px solid white;
 }
 
 
-.affichComment .signalement a{
-	font-size: 10px;
-	color: red;
+
+/********************************* HEADER Admin *********************************/
+
+
+header .imageHeaderAdmin{
+	background-size: cover;
+ 	width: 100%;
+ 	height: 400px;
+ 	background-position: center;
+ 	margin: auto;
 }
+
+header .imageHeaderAdmin img{
+	display: none;
+}
+
+header .titreAdmin{
+	margin-top: -15%;
+	width: 100%;
+	position: absolute;
+}
+
+
+/********************************* Page Admin *********************************/
+
+
+#admin .session{
+	background-color: white;
+	padding: 30px;
+}
+
+#admin .session a, .session p{
+	text-decoration: none;
+	color: #c2d6f6;
+	font-size: 25px;
+}
+
+#admin .session a:hover{
+	text-decoration: line-through;
+	color: #1863a2;
+}
+
+#admin .session hr{
+	width: 60px;
+	padding:1px;
+	background-color: #c2d6f6;
+	border:0;
+}
+
+#admin h1, #admin h2{
+	color: white;
+}
+
+.menuAdminChoix{
+	padding-top: 50px;
+	width: 70%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.menuAdminChoix h3{
+	width: 260px;
+	position: relative;
+	padding: 20px 10px;
+	margin: 7px 10px 7px 10px;
+	box-shadow: 0px 0px 3px #618cadad ;
+	background-color: white;
+	border-radius: 5px;	
+}
+
+.menuAdminChoix h3:hover{
+	box-shadow: 0px 0px 3px white ;
+	background-color: white;	
+}
+
+
+.menuAdminChoix a {
+	text-decoration: none;
+	color: #c2d6f6;
+
+}
+
+
+.menuAdminChoix a:hover{
+	text-decoration: line-through;
+	color: #1863a2;
+}
+
+
+/********************************* Page Nouveau Billet *********************************/
+
+.retourAdmin{
+	background-color: white;
+	padding: 30px;
+}
+
+.retourAdmin a{
+	text-decoration: none;
+	color: #c2d6f6;
+	font-size: 25px;
+}
+
+.retourAdmin a:hover{
+	text-decoration: line-through;
+	color: #1863a2;
+}
+
+#newPost h2{
+	color: white;
+	padding: 10px;
+}
+
+#formulaire_commentaire label{
+	text-align: left;
+	padding-left: 10%;
+	display: block;
+}
+
+#formulaire_commentaire p{
+	display: block;
+	text-align: center;
+	color:  #c2d6f6;
+}
+
+#formulaire_commentaire form{
+	width: 50%;
+	background-color: white;
+	padding: 50px 50px 40px 50px;
+	margin: auto;
+	text-align: center;
+ 	border-radius:5px;
+}
+
+#formulaire_commentaire input, #formulaire_commentaire textarea{
+	border-radius: 4px;
+	border:1px solid #1863a2;
+	padding: 5px;
+	margin-bottom: 20px;
+	width: 80%;
+}
+
+#formulaire_commentaire .catfile p{
+	text-align: center;
+
+}
+
+#formulaire_commentaire .file{
+	border:none;
+}
+
+#formulaire_commentaire button{
+	background-color: white;
+	color: #1863a2;
+	padding: 10px;
+	margin-top: 10px;
+	border:1px solid #1863a2 ;
+	border-radius:5px;
+	cursor: pointer;
+}
+
+#formulaire_commentaire button:hover{
+	background-color:#1863a2;
+	color: white;
+	border:1px solid white;
+}
+
+/********************************* Page Editeur Billet *********************************/
+
+#editeur h2{
+	color: white;
+	padding: 10px;
+}
+
+
+/********************************* Page Editer le Billet *********************************/
+
+
+
+
+
+/********************************* Footer *********************************/
+
+
+
+footer .login{
+	margin-top: 100px;
+	height: 60px;
+	width: 100%;
+	background-color: white;
+	display: flex;
+	align-items: center;
+}
+
+footer .login p{
+	text-decoration: none;
+	margin: auto;
+	font-size: 25px;
+}
+
+footer .login a{
+	text-decoration: none;
+	color: #c2d6f6;
+}
+
+footer .login a:hover{
+	text-decoration: line-through;
+	color: #1863a2;
+}
+
+
+/*/////////////////////////////////////////////////////////////////////////
+//////////////////////////////    1500px     //////////////////////////////
+/////////////////////////////////////////////////////////////////////////*/
+
+@media screen and (max-width: 1500px){
+
+	header .imageHeader{
+	 	height: 600px;
+	}
+
+
+}
+
+
+/*/////////////////////////////////////////////////////////////////////////
+//////////////////////////////    1280px     //////////////////////////////
+/////////////////////////////////////////////////////////////////////////*/
+
+@media screen and (max-width: 1280px){
+
+	header .imageHeader{
+	 	height: 400px;
+	}
+
+
+}
+
+
+
+/*/////////////////////////////////////////////////////////////////////////
+//////////////////////////////    768px     ///////////////////////////////
+///////////////////////////////////////////////////////////////////////////*/
+
+@media screen and (max-width: 768px){
+
+	header .imageHeader{
+	 	height: 400px;
+	}
+
+}
+
+
+
+/*/////////////////////////////////////////////////////////////////////////
+//////////////////////////////    360px     ///////////////////////////////
+///////////////////////////////////////////////////////////////////////////*/
+
+@media screen and (max-width: 360px) {
+
+	header .imageHeader{
+	 	height: 200px;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

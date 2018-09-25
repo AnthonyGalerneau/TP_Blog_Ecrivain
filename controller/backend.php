@@ -33,6 +33,20 @@ function modifPost($id)
     }
 }
 
+function addModifPostImg($id, $title, $content, $nameImg)
+{
+    $adminPostManager = new \AnthonyGalerneau\Blog\Model\PostManager(); 
+    $req = $adminPostManager->addModifPostImg($id, $title, $content, $nameImg); 
+
+   if ($req === false) 
+   {
+        throw new Exception('Impossible de modifier le billet !');
+    } else 
+    {
+        header('Location: index.php?action=listPostsAdmin');
+    }
+}
+
 function addModifPost($id, $title, $content)
 {
     $adminPostManager = new \AnthonyGalerneau\Blog\Model\PostManager(); 
@@ -52,11 +66,11 @@ function newPost()
     require('view/admin/newPostView.php');
 }
 
-function addNewPost($id, $title, $content)
+function addNewPost($id, $title, $content, $nameImg)
 {
     $adminPostManager = new \AnthonyGalerneau\Blog\Model\PostManager(); 
 
-    $affectedLines = $adminPostManager->addNewPost($id, $title, $content);
+    $affectedLines = $adminPostManager->addNewPost($id, $title, $content, $nameImg);
 
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter le billet !');
@@ -65,6 +79,7 @@ function addNewPost($id, $title, $content)
         header('Location: index.php');
     }
 }
+    
 
 function moderate()
 {

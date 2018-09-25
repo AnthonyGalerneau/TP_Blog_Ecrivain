@@ -1,20 +1,32 @@
-Editer le billet
-<?php $title = ob_get_clean(); ?>
+
+<?php $title = 'Editer le billet'; ?>
 
 <?php ob_start(); ?>
-<p><a href="index.php?action=listPostsAdmin">Retour à la liste des billets</a></p>
- 
- 
-<h2>Editer le billet</h2>
- 
-<form action="index.php?action=addModifPost&amp;id=<?= $post['id'] ?>" method="post">
-		<p><label for="title"> Titre :<input type="text" name="title" id="title" value="<?php echo $post['title'] ?>"></label></p>
+
+<div class="retourAdmin">
+    <p><a href="index.php?action=admin"> Retour à l'accueil de l'administration</a></p>
+    <p><a href="index.php?action=listPostsAdmin"> Retour à la liste des posts</a></p>
+</div>
+
+<div id="editeur">
+    <h2>Editer le billet</h2>
+</div>
+
+<div id="formulaire_commentaire">
+    <form action="index.php?action=addModifPost&amp;id=<?= $post['id'] ?>" method="post" enctype="multipart/form-data">
+        <p>Changer image :</p>
+        <p><img style= "max-width: 100px; max-height: 100px;" src="<?= $post['image'] ?>"></p>
+
+    	<p><label for="image">(jpg, jpeg, gif, png | max. 2 Mo) :</label><br />
+        <input type="hidden" name="MAX_FILE_SIZE" value="2097152" /><br />
+        <input  class="file" type="file" name="image" id="image" /></p>
+    	<p><label for="title">Modifier titre :</label><br />
+    	<input type="text" name="title" id="title" value="<?php echo $post['title'] ?>"></p>
         <p><label for="content">Editer Billet :</label><br />
-        <textarea id="content" name="content" rows="4" cols="30"><?php echo $post['content'] ?></textarea></p>
-    <div>
-        <p><input type="Submit" /></p>
-    </div>
-</form>
+        <textarea name="content" rows="30" cols="70" id="content"><?php echo $post['content'] ?></textarea></p>
+        <p><button type="submit" /> Valider </button> </p>
+    </form>
+</div>
 <?php
 $content = ob_get_clean(); ?>
  

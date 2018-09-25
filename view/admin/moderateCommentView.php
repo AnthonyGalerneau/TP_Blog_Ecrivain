@@ -1,8 +1,10 @@
-Modérer les commentaires
-<?php $title = ob_get_clean(); ?>
+<?php $title = 'Modérer les commentaires'; ?>
 
 <?php ob_start(); ?>
-<p><a href="index.php?action=admin"> Retour à l'accueil de l'administration</a></p>
+
+<div class="retourAdmin">
+	<p><a href="index.php?action=admin"> Retour à l'accueil de l'administration</a></p>
+</div>
  
  
 <h2>Modérer les commentaires</h2>

@@ -1,31 +1,41 @@
 <?php $title = 'Editeur de billets'; ?>
 
 <?php ob_start(); ?>
-<h3>Vos derniers billets</h3>
+<div class="retourAdmin">
+    <p><a href="index.php?action=admin"> Retour à l'accueil de l'administration</a></p>
+</div>
+<div id="editeur">
+    <h2>Editeur - Vos derniers billets</h2>
 
-<p><a href="index.php?action=admin"> Retour à l'accueil de l'administration</a></p>
-
-
-<?php
-while ($data = $posts->fetch())
-{
-?>
-    <div class="news">
-        <h3>
-            <?= htmlspecialchars($data['title']) ?>
-            <em>le <?= $data['creation_date_fr'] ?></em>
-        </h3>
-        
-        <p>
-            <?= nl2br(htmlspecialchars($data['content'])) ?>
-            <br />
-            <em><a href="index.php?action=modifPostAdmin&amp;id=<?= $data['id'] ?>">Editer</a></em>
-        </p>
+    <div id="articles">
+    <?php
+    while ($data = $posts->fetch())
+    {
+        $extrait = substr($data['content'], 0,50);
+        $space = strrpos($extrait, ' ');
+    ?>
+        <div class="news">
+            <div class="imageBilletAccueil" style="background-image:url(<?= $data['image'] ?>)">
+                <img src="<?= $data['image'] ?>">
+            </div>
+            <div class="extraitBilletAccueil">
+                <h3>
+                <a href="index.php?action=modifPostAdmin&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a>
+                </h3>
+                <p class="date">
+                    <em>le <?= $data['creation_date_fr'] ?></em>
+                </p>
+                
+                <p>"<?= nl2br(htmlspecialchars(substr($extrait, 0, $space).'...')) ?>"</p>
+                <p><em><a href="index.php?action=modifPostAdmin&amp;id=<?= $data['id'] ?>">Editer</a></em></p>
+            </div>
+        </div>
+    <?php
+    }
+    $posts->closeCursor();
+    ?>
     </div>
-<?php
-}
-$posts->closeCursor();
-?>
+</div>
 <?php $content = ob_get_clean(); ?>
  
 <?php require('view/admin/template.php'); ?>

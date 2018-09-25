@@ -1,6 +1,5 @@
-
-Modifier le commentaire
-<?php $title = ob_get_clean(); ?>
+<?php
+$title = 'Modifier le commentaire'; ?>
 
 <?php ob_start(); ?>
 <h1>Mon super blog !</h1>
