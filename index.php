@@ -82,7 +82,6 @@ try {
                 throw new Exception('Aucun identifiant de billet envoyé');
             }  
         }
-
         elseif ($_GET['action'] == 'addModifPost') 
         {  
             if (isset($_GET['id']) && $_GET['id'] > 0) 
@@ -133,7 +132,14 @@ try {
                 throw new Exception('Tous les champs ne sont pas remplis !');
             }
         }
-
+        elseif ($_GET['action'] == 'deletePost') {
+            if(isset($_GET['delete']) AND !empty($_GET['delete'])){
+                deletePost();
+            } else 
+            { 
+                throw new Exception('Non !');
+            }
+        }
         elseif ($_GET['action'] == 'reportComment') {
             if(isset($_GET['moderate']) AND !empty($_GET['moderate'])){
                 moderate();

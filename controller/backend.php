@@ -61,6 +61,14 @@ function addModifPost($id, $title, $content)
     }
 }
 
+function deletePost()
+{
+    $commentManager = new \AnthonyGalerneau\Blog\Model\PostManager();
+    $comment = $commentManager->deletePost();
+
+    header('Location: index.php?action=listPostsAdmin');
+}
+
 function newPost()
 {
     require('view/admin/newPostView.php');

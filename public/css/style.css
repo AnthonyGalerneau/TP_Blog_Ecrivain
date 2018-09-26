@@ -513,11 +513,6 @@ header .titreAdmin{
 	width: 80%;
 }
 
-#formulaire_commentaire .catfile p{
-	text-align: center;
-
-}
-
 #formulaire_commentaire .file{
 	border:none;
 }
@@ -548,7 +543,10 @@ header .titreAdmin{
 
 /********************************* Page Editer le Billet *********************************/
 
-
+.deletePost a{
+	text-decoration: none;
+	color: red;
+}
 
 
 

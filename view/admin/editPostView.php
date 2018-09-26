@@ -13,7 +13,8 @@
 </div>
 
 <div id="formulaire_commentaire">
-    <form action="index.php?action=addModifPost&amp;id=<?= $post['id'] ?>" method="post" enctype="multipart/form-data">
+    <form action="index.php?action=addModifPost&amp;id=<?= $post['id'] ?>" method="post" enctype="multipart/form-data">     
+        <p class="deletePost"><a href="index.php?action=deletePost&amp;delete=<?=$post['id'] ?>">Supprimer Le billet</a></p>
         <p>Changer image :</p>
         <p><img style= "max-width: 100px; max-height: 100px;" src="<?= $post['image'] ?>"></p>
 

@@ -50,6 +50,14 @@ class PostManager extends Manager
         return $req;
     }
 
+    public function deletePost()
+    {
+        $delete = (int) $_GET['delete'];
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM posts WHERE id = ?');
+        $req->execute(array($delete));  
+    }
+
     public function addNewPost($id, $title, $content, $nameImg)
 	{
 	    $db = $this->dbConnect();
