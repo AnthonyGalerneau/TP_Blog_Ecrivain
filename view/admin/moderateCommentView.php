@@ -15,12 +15,26 @@
 while ($comment = $comments->fetch())
 {
 ?>
-<div class="affichComment">
+<div class="affichCommentReport">
     <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
     <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
     <p><a href="index.php?action=validComment&amp;valid=<?=$comment['id'] ?>">Valider</a> - <a href="index.php?action=deleteComment&amp;delete=<?=$comment['id'] ?>">Supprimer</a></p>
 </div>
 
+<?php
+}
+?>
+<hr>
+<?php
+while ($otherComment = $otherComments->fetch())
+{
+?>
+
+<div class="affichCommentOther">
+    <p><strong><?= htmlspecialchars($otherComment['author']) ?></strong> le <?= $otherComment['comment_date_fr'] ?></p>
+    <p><?= nl2br(htmlspecialchars($otherComment['comment'])) ?></p>
+    <p><a href="index.php?action=deleteComment&amp;delete=<?=$comment['id'] ?>">Supprimer</a></p>
+</div>
 <?php
 }
 

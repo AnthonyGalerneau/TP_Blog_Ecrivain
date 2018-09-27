@@ -70,7 +70,7 @@ try {
         }
         elseif ($_GET['action'] == 'admin')
         {
-            admin();
+            admin();     
         }
         elseif ($_GET['action'] == 'listPostsAdmin') {
             listPostsAdmin();
@@ -151,7 +151,6 @@ try {
         elseif ($_GET['action'] == 'moderateComment')
         {   
             moderateComment();
-            
         }
         elseif ($_GET['action'] == 'validComment') {
             if(isset($_GET['valid']) AND !empty($_GET['valid'])){

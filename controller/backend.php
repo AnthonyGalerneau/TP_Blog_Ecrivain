@@ -8,7 +8,11 @@ require_once('model/ConnexionManager.php');
 
 function admin()
 {  
+    $commentManager = new \AnthonyGalerneau\Blog\Model\CommentManager();
+    $comments = $commentManager->getNbCommentsReport();
+
     require('view/admin/adminView.php');
+
 }
 
 function listPostsAdmin()
@@ -86,8 +90,7 @@ function addNewPost($id, $title, $content, $nameImg)
     else {
         header('Location: index.php');
     }
-}
-    
+}  
 
 function moderate()
 {
@@ -100,14 +103,12 @@ function moderate()
 function moderateComment()
 {
     $commentManager = new \AnthonyGalerneau\Blog\Model\CommentManager();
-    $comments = $commentManager->getCommentsAdmin();
+    $comments = $commentManager->getCommentsReportAdmin();
 
-    if ($comments === false) {
-        throw new Exception('Impossible de signaler le commentaire!');
-    }
-    else {
-        require('view/admin/moderateCommentView.php');
-    }
+    $commentManager = new \AnthonyGalerneau\Blog\Model\CommentManager();
+    $otherComments = $commentManager->getOtherCommentsAdmin();
+
+    require('view/admin/moderateCommentView.php');
 }
 
 function validComment()

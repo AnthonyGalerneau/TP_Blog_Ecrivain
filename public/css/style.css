@@ -433,7 +433,7 @@ header .titreAdmin{
 }
 
 .menuAdminChoix h3{
-	width: 260px;
+	width: 300px;
 	position: relative;
 	padding: 20px 10px;
 	margin: 7px 10px 7px 10px;
@@ -458,6 +458,11 @@ header .titreAdmin{
 .menuAdminChoix a:hover{
 	text-decoration: line-through;
 	color: #1863a2;
+}
+
+.moderer {
+	display: inline-block;
+  	color: red;
 }
 
 

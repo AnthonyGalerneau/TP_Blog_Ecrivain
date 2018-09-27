@@ -68,15 +68,5 @@ class PostManager extends Manager
 
 	    return $affectedLines;
 	}
-
-	public function getPostAdmin($postId)
-	{
-	    $db = $this->dbConnect();
-	    $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts');
-	    $req->execute(array());
-	    $post = $req->fetch();
-
-	    return $post;
-	}
 }
 	

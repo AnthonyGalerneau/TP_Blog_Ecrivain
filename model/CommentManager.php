@@ -45,17 +45,33 @@ class CommentManager extends Manager
 		$moderate = (int) $_GET['moderate'];
 	    $db = $this->dbConnect();
 	    $req = $db->prepare('UPDATE comments SET moderate = 1 WHERE id = ?');
-	    $req->execute(array($moderate));
-	    
+	    $req->execute(array($moderate));  
 	}
 
-    public function getCommentsAdmin()
+	public function getNbCommentsReport(){
+	    $db = $this->dbConnect();
+	    $comments = $db->query('SELECT COUNT(*) AS nb_comment_report FROM comments WHERE moderate = "1"');
+	    $data = $comments->fetch();
+	    return $data;
+
+	}
+
+    public function getCommentsReportAdmin()
 	{
 	    $db = $this->dbConnect();
-	    $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr, moderate FROM comments WHERE moderate = "1" ORDER BY comment_date DESC LIMIT 0, 5');
+	    $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr, moderate FROM comments WHERE moderate = "1" ORDER BY comment_date');
 	    $comments->execute(array());
 
 	    return $comments;
+	}
+
+	public function getOtherCommentsAdmin()
+	{
+	    $db = $this->dbConnect();
+	    $otherComments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr, moderate FROM comments WHERE moderate = "0" ORDER BY comment_date');
+	    $otherComments->execute(array());
+
+	    return $otherComments;
 	}
 
 	public function validComment()
