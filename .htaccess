@@ -1,0 +1,74 @@
+RewriteEngine On
+
+#index
+
+RewriteRule ^/$  index.php [L]
+
+#Billets
+
+RewriteRule ^billet/([0-9]+)$ index.php?action=post&id=$1 [L]
+
+#Signaler Comment
+
+RewriteRule ^signaler-commentaire-([0-9]+)$ index.php?action=reportComment&moderate=$1 [L]
+
+#Add Comment
+
+RewriteRule ^addComment([0-9]+)$ index.php?action=addComment&id=$1 [L]
+
+#Modif Comment
+
+RewriteRule ^billet/([0-9]+)/modifier-commentaire/([0-9]+)$ index.php?action=modifComment&postId=$1&id=$2 [L] 
+
+#Add Modif Comment
+
+RewriteRule ^billet-([0-9]+)-add-modif-comment-([0-9]+)$ index.php?action=addModifComment&postId=$1&id=$2 [L]
+
+#Login
+
+RewriteRule ^login$ index.php?action=login [L]
+
+#Logout
+
+RewriteRule ^logout$ index.php?action=logout [L]
+
+#Admin
+
+RewriteRule ^admin$ index.php?action=admin [L]
+
+#Nouveau Billet
+
+RewriteRule ^nouveau-billet$ index.php?action=newPost [L]
+
+#Add Nouveau Billet
+
+RewriteRule ^add-nouveau-billet$ index.php?action=addNewPost [L]
+
+#Editer Billets Liste
+
+RewriteRule ^editer-billets$ index.php?action=listPostsAdmin [L]
+
+#Editer Billet
+
+RewriteRule ^editer-billet/([0-9]+)$ index.php?action=modifPostAdmin&id=$1 [L]
+
+#Add Modif Billet
+
+RewriteRule ^add-modif-billet-([0-9]+)$ index.php?action=addModifPost&id=$1 [L]
+
+#Supprimer Billet
+
+RewriteRule ^supprimer-billet-([0-9]+)$ index.php?action=deletePost&delete=$1 [L]
+
+#Modération Commentaires
+
+RewriteRule ^moderer-commentaires$ index.php?action=moderateComment [L]
+
+#Valider Commentaire
+
+RewriteRule ^valider-commentaires-([0-9]+)$ index.php?action=validComment&valid=$1 [L]
+
+#Supprimer Commentaire
+
+RewriteRule ^supprimer-commentaires-([0-9]+)$ index.php?action=deleteComment&delete=$1 [L]
+
