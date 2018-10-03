@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <title><?= 'Jean Forteroche - ' . $title ?></title>
-        <link href="public/css/style.css" rel="stylesheet" /> 
+        <link href="/public/css/style.css" rel="stylesheet" /> 
     </head>
         
     <body>
@@ -14,7 +14,7 @@
 
         <footer>
             <div class="login">
-                    <p><a href="index.php?action=login">Admin</a></p>
+                    <p><a href="/login">Admin</a></p>
             </div>
         </footer>
     </body>

@@ -4,9 +4,9 @@ $title = htmlspecialchars('Connexion'); ?>
 
 <?php ob_start(); ?>
 <?php
- if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
+if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
 {
-    header('Location: ../index.php?action=admin');
+    header('Location: /admin');
 }
 else
 {
@@ -19,7 +19,7 @@ else
 </div>
 
 <div class="loginform">
-    <p><a href="index.php">Retour accueil</a></p>
+    <p><a href="/">Retour accueil</a></p>
     <form action="" method="post">
         <h2><legend>Identifiez-vous :</legend></h2>
         <p><label for="pseudo">Votre identifiant</label></p>

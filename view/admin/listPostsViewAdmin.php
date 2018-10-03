@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 <div class="retourAdmin">
-    <p><a href="index.php?action=admin"> Retour à l'accueil de l'administration</a></p>
+    <p><a href="/admin"> Retour à l'accueil de l'administration</a></p>
 </div>
 <div id="editeur">
     <h2>Editeur - Vos derniers billets</h2>
@@ -15,19 +15,19 @@
         $space = strrpos($extrait, ' ');
     ?>
         <div class="news">
-            <div class="imageBilletAccueil" style="background-image:url(<?= $data['image'] ?>)">
-                <img src="<?= $data['image'] ?>">
+            <div class="imageBilletAccueil" style="background-image:url(/<?= $data['image'] ?>)">
+                <img src="/<?= $data['image'] ?>">
             </div>
             <div class="extraitBilletAccueil">
                 <h3>
-                <a href="index.php?action=modifPostAdmin&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a>
+                <a href="/editer-billet/<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a>
                 </h3>
                 <p class="date">
                     <em>le <?= $data['creation_date_fr'] ?></em>
                 </p>
                 
                 <p>"<?= nl2br(htmlspecialchars(substr($extrait, 0, $space).'...')) ?>"</p>
-                <p><em><a href="index.php?action=modifPostAdmin&amp;id=<?= $data['id'] ?>">Editer</a></em></p>
+                <p><em><a href="/editer-billet/<?= $data['id'] ?>">Editer</a></em></p>
             </div>
         </div>
     <?php

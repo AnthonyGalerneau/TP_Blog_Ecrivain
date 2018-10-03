@@ -47,7 +47,7 @@ function addModifPostImg($id, $title, $content, $nameImg)
         throw new Exception('Impossible de modifier le billet !');
     } else 
     {
-        header('Location: index.php?action=listPostsAdmin');
+        header('Location: /editer-billets');
     }
 }
 
@@ -61,7 +61,7 @@ function addModifPost($id, $title, $content)
         throw new Exception('Impossible de modifier le billet !');
     } else 
     {
-        header('Location: index.php?action=listPostsAdmin');
+        header('Location: /editer-billets');
     }
 }
 
@@ -70,7 +70,7 @@ function deletePost()
     $commentManager = new \AnthonyGalerneau\Blog\Model\PostManager();
     $comment = $commentManager->deletePost();
 
-    header('Location: index.php?action=listPostsAdmin');
+    header('Location: /editer-billets');
 }
 
 function newPost()
@@ -88,7 +88,7 @@ function addNewPost($id, $title, $content, $nameImg)
         throw new Exception('Impossible d\'ajouter le billet !');
     }
     else {
-        header('Location: index.php');
+        header('Location: /editer-billets');
     }
 }  
 
@@ -97,7 +97,7 @@ function moderate()
     $commentManager = new \AnthonyGalerneau\Blog\Model\CommentManager();
     $comment = $commentManager->reportComment();
 
-    header('Location: index.php');
+    header('Location: /');
 }
 
 function moderateComment()
@@ -116,7 +116,7 @@ function validComment()
     $commentManager = new \AnthonyGalerneau\Blog\Model\CommentManager();
     $comment = $commentManager->validComment();
 
-    header('Location: index.php?action=moderateComment');
+    header('Location: /moderer-commentaires');
 }
 
 
@@ -125,5 +125,5 @@ function deleteComment()
     $commentManager = new \AnthonyGalerneau\Blog\Model\CommentManager();
     $comment = $commentManager->deleteComment();
 
-    header('Location: index.php?action=moderateComment');
+    header('Location: /moderer-commentaires');
 }

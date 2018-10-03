@@ -15,7 +15,7 @@ try {
         elseif ($_GET['action'] == 'logout') {
             session_start();
             session_destroy();
-            header('Location: index.php');
+            header('Location: /');
         }
         elseif ($_GET['action'] == 'listPosts') {
             listPosts();

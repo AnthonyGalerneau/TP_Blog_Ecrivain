@@ -36,7 +36,7 @@ function addComment($postId, $author, $comment)
         throw new Exception('Impossible d\'ajouter le commentaire !');
     }
     else {
-        header('Location: index.php?action=post&id=' . $postId);
+        header('Location: billet/' . $postId);
     }
 }
 
@@ -67,7 +67,7 @@ function addModifComment($postId, $id, $author, $comment)
         throw new Exception('Impossible de modifier le commentaire !');
     } else 
     {
-        header('Location: index.php?action=post&id=' . $postId);
+        header('Location: billet/' . $postId);
     }
 }
 
@@ -82,7 +82,7 @@ function login()
         $isPasswordCorrect = password_verify($_POST['pass'], $resultat['pass']);
         if (!$resultat)
         {
-            echo '<p>Mauvais identifiant ou mot de passe !<br> <a href="index.php"> essayez à nouveau</a></p>';
+            echo '<p>Mauvais identifiant ou mot de passe !<br> <a href="/"> essayez à nouveau</a></p>';
         }
         else
         {

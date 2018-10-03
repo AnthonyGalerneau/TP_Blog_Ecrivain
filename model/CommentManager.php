@@ -68,7 +68,7 @@ class CommentManager extends Manager
 	public function getOtherCommentsAdmin()
 	{
 	    $db = $this->dbConnect();
-	    $otherComments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr, moderate FROM comments WHERE moderate = "0" ORDER BY comment_date');
+	    $otherComments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr, moderate FROM comments WHERE moderate = "0" ORDER BY comment_date DESC');
 	    $otherComments->execute(array());
 
 	    return $otherComments;

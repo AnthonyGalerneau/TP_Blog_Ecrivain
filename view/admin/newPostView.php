@@ -4,7 +4,7 @@
 <?php ob_start(); ?>
 <div id="newPost">
 	<div class="retourAdmin">
-		<p><a href="index.php?action=admin"> Retour à l'accueil de l'administration</a></p>
+		<p><a href="/admin"> Retour à l'accueil de l'administration</a></p>
 	</div>
 	 
 	<h2>Créer un nouveau billet</h2>
@@ -12,7 +12,7 @@
 
 	<div id="formulaire_commentaire">
 
-	    <form action="index.php?action=addNewPost" method="post" enctype="multipart/form-data">
+	    <form action="/add-nouveau-billet" method="post" enctype="multipart/form-data">
 		    <p><label for="title"> Titre :</label> <br>
 		    	<input type="text" name="title" id="title" /></p>
 		    <p><label for="content"> Texte : </label> <br>

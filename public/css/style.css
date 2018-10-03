@@ -263,6 +263,42 @@ header hr{
 	border:1px solid #1863a2;
 }
 
+/********************************* Page CommentView *********************************/
+
+.editComment h2{
+	color: white;
+}
+
+.editComment form{
+	margin-top: 50px;
+	text-align: center;
+}
+
+.editComment input{
+	padding: 5px;
+}
+
+.editComment input, .editComment textarea{
+	border-radius: 4px;
+	border:1px solid #1863a2;
+}
+
+.editComment button{
+	background-color: white;
+	color: #1863a2;
+	padding: 10px 30px;
+	margin-top: 10px;
+	border:1px solid #1863a2;
+	border-radius:5px;
+	cursor: pointer;
+}
+
+.editComment button:hover{
+	background-color:#1863a2;
+	color: white;
+	
+}
+
 /********************************* Page Login *********************************/
 
 
@@ -553,7 +589,30 @@ header .titreAdmin{
 	color: red;
 }
 
+/********************************* Page Moderation commentaires *********************************/
 
+.comment .affichComment .headCommentSign{
+	padding: 10px;
+	background-color: red;
+}
+.comment .affichComment .headCommentSign p{
+	text-align: left;
+	color: white;
+}
+
+.comment h2{
+	color: white;
+}
+
+.comment .valid{
+	text-decoration: none;
+	color: green;
+}
+
+.comment .supp{
+	text-decoration: none;
+	color: red;
+}
 
 /********************************* Footer *********************************/
 

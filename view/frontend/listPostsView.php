@@ -46,7 +46,7 @@ while ($data = $posts->fetch())
         </div>
         <div class="extraitBilletAccueil">
             <h3>
-            <a href="index.php?action=post&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a>
+            <a href="billet/<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a>
             </h3>
             <p class="date">
                 <em>le <?= $data['creation_date_fr'] ?></em>
@@ -54,7 +54,7 @@ while ($data = $posts->fetch())
             
             <p>"<?= nl2br(htmlspecialchars(substr($extrait, 0, $space).'...')) ?>"</p>
            
-            <p><em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Lire la suite</a></em></p>
+            <p><em><a href="billet/<?= $data['id'] ?>">Lire la suite</a></em></p>
             
         </div>
     </div>
