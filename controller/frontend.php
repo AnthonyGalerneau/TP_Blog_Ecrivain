@@ -5,12 +5,29 @@ require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/ConnexionManager.php');
 
+function showListPostByPage($page)
+{
+    $postManager = new \AnthonyGalerneau\Blog\Model\PostManager();
+    $articlesTotals = $postManager->nbpost();
+    $pagesTotales = ceil($articlesTotals/4);
+    if ($page<=$pagesTotales) {
+        $depart = ($page-1)*4;
+        $posts = $postManager->getPostByPage($depart);
+        require ('view/frontend/listPostsView.php');
+    }
+}
 
 function listPosts()
 {
     $postManager = new \AnthonyGalerneau\Blog\Model\PostManager(); // Création d'un objet
     $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
+    require('view/frontend/listPostsView.php');
+}
 
+function nbPosts()
+{
+    $postManager = new \AnthonyGalerneau\Blog\Model\PostManager(); // Création d'un objet
+    $pagesTotales = $postManager->nbpost(); // Appel d'une fonction de cet objet
     require('view/frontend/listPostsView.php');
 }
 
@@ -25,6 +42,7 @@ function post()
     require('view/frontend/postView.php');
 }
 
+
 function addComment($postId, $author, $comment)
 {
     $commentManager = new \AnthonyGalerneau\Blog\Model\CommentManager();
@@ -35,7 +53,7 @@ function addComment($postId, $author, $comment)
         throw new Exception('Impossible d\'ajouter le commentaire !');
     }
     else {
-        header('Location: index.php?action=post&id=' . $postId);
+        header('Location: billet/' . $postId);
     }
 }
 
@@ -66,7 +84,7 @@ function addModifComment($postId, $id, $author, $comment)
         throw new Exception('Impossible de modifier le commentaire !');
     } else 
     {
-        header('Location: index.php?action=post&id=' . $postId);
+        header('Location: billet/' . $postId);
     }
 }
 
@@ -76,17 +94,17 @@ function login()
     $resultat = $connexionManager->getLog(); 
  
     if (isset($_POST['pseudo']) && isset($_POST['pass'])) 
-    {
+    {   
         // Comparaison du pass envoyé via le formulaire avec la base
         $isPasswordCorrect = password_verify($_POST['pass'], $resultat['pass']);
         if (!$resultat)
         {
-            echo '<p>Mauvais identifiant ou mot de passe !<br> <a href="index.php"> essayez à nouveau</a></p>';
+            echo '<p>Mauvais identifiant ou mot de passe !<br> <a href="/"> essayez à nouveau</a></p>';
         }
         else
         {
-            if ($isPasswordCorrect) {
-                session_start();
+            if ($isPasswordCorrect) 
+            {
                 $_SESSION['id'] = $resultat['id'];
                 $_SESSION['pseudo'] = $_POST['pseudo'];
                 echo '<p>Vous êtes connecté !</p>';
@@ -99,6 +117,8 @@ function login()
     require('view/frontend/connexionView.php');
 
 }
+
+
 
 
 
