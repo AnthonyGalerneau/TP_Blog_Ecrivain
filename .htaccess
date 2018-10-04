@@ -2,12 +2,23 @@ RewriteEngine On
 
 #index
 
+<<<<<<< HEAD
 RewriteRule ^/$  index.php [L]
+=======
+RewriteRule ^/$ index.php [L]
+>>>>>>> connexion
 
 #Billets
 
 RewriteRule ^billet/([0-9]+)$ index.php?action=post&id=$1 [L]
 
+<<<<<<< HEAD
+=======
+#page accueil
+
+RewriteRule ^page/([0-9]+)$ index.php?action=listPosts&page=$1 [L]
+
+>>>>>>> connexion
 #Signaler Comment
 
 RewriteRule ^signaler-commentaire-([0-9]+)$ index.php?action=reportComment&moderate=$1 [L]
@@ -48,9 +59,19 @@ RewriteRule ^add-nouveau-billet$ index.php?action=addNewPost [L]
 
 RewriteRule ^editer-billets$ index.php?action=listPostsAdmin [L]
 
+<<<<<<< HEAD
 #Editer Billet
 
 RewriteRule ^editer-billet/([0-9]+)$ index.php?action=modifPostAdmin&id=$1 [L]
+=======
+#Editer Billets Pagination
+
+RewriteRule ^editer-billets/page/([0-9]+)$ index.php?action=listPostsAdmin&page=$1 [L]
+
+#Editer Billet
+
+RewriteRule ^editer-billet/billet/([0-9]+)$ index.php?action=modifPostAdmin&id=$1 [L]
+>>>>>>> connexion
 
 #Add Modif Billet
 
@@ -72,3 +93,24 @@ RewriteRule ^valider-commentaires-([0-9]+)$ index.php?action=validComment&valid=
 
 RewriteRule ^supprimer-commentaires-([0-9]+)$ index.php?action=deleteComment&delete=$1 [L]
 
+<<<<<<< HEAD
+=======
+
+
+
+
+ErrorDocument 400 http://localhost:8888/400.php
+ErrorDocument 401 http://localhost:8888/401.php
+ErrorDocument 402 http://localhost:8888/402.php
+ErrorDocument 403 http://localhost:8888/403.php
+ErrorDocument 404 http://localhost:8888/404.php
+ErrorDocument 405 http://localhost:8888/405.php
+ErrorDocument 500 http://localhost:8888/500.php
+ErrorDocument 501 http://localhost:8888/501.php
+ErrorDocument 502 http://localhost:8888/502.php
+ErrorDocument 503 http://localhost:8888/503.php
+ErrorDocument 504 http://localhost:8888/504.php
+ErrorDocument 505 http://localhost:8888/505.php
+
+
+>>>>>>> connexion

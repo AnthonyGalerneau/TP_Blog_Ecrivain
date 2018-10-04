@@ -18,11 +18,11 @@
         <p>Changer image :</p>
         <p><img style= "max-width: 100px; max-height: 100px;" src="/<?= $post['image'] ?>"></p>
 
-    	<p><label for="image">(jpg, jpeg, gif, png | max. 2 Mo) :</label><br />
+        <p><label for="image">(jpg, jpeg, gif, png | max. 2 Mo) :</label><br />
         <input type="hidden" name="MAX_FILE_SIZE" value="2097152" /><br />
         <input  class="file" type="file" name="image" id="image" /></p>
-    	<p><label for="title">Modifier titre :</label><br />
-    	<input type="text" name="title" id="title" value="<?php echo $post['title'] ?>"></p>
+        <p><label for="title">Modifier titre :</label><br />
+        <input type="text" name="title" id="title" value="<?php echo $post['title'] ?>"></p>
         <p><label for="content">Editer Billet :</label><br />
         <textarea name="content" rows="30" cols="70" id="content"><?php echo $post['content'] ?></textarea></p>
         <p><button type="submit" /> Valider </button> </p>

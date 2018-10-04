@@ -4,7 +4,7 @@ $title = htmlspecialchars('Connexion'); ?>
 
 <?php ob_start(); ?>
 <?php
-if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
+ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
 {
     header('Location: /admin');
 }
@@ -30,7 +30,7 @@ else
         <p><input type="password" name="pass" id="pass"></p>
         <br>
 
-        <p><button type="submit">S'inscrire</button></p>
+        <p><button type="submit">Se connecter</button></p>
     </form>
 </div>
 

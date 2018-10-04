@@ -5,12 +5,29 @@ require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/ConnexionManager.php');
 
+function showListPostByPage($page)
+{
+    $postManager = new \AnthonyGalerneau\Blog\Model\PostManager();
+    $articlesTotals = $postManager->nbpost();
+    $pagesTotales = ceil($articlesTotals/4);
+    if ($page<=$pagesTotales) {
+        $depart = ($page-1)*4;
+        $posts = $postManager->getPostByPage($depart);
+        require ('view/frontend/listPostsView.php');
+    }
+}
+
 function listPosts()
 {
     $postManager = new \AnthonyGalerneau\Blog\Model\PostManager(); // Création d'un objet
     $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
-    
+    require('view/frontend/listPostsView.php');
+}
 
+function nbPosts()
+{
+    $postManager = new \AnthonyGalerneau\Blog\Model\PostManager(); // Création d'un objet
+    $pagesTotales = $postManager->nbpost(); // Appel d'une fonction de cet objet
     require('view/frontend/listPostsView.php');
 }
 

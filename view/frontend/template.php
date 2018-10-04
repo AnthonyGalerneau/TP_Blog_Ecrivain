@@ -10,7 +10,7 @@
         <section id="content">
             <?= $content ?>
         </section>
-		
+        
 
         <footer>
             <div class="login">

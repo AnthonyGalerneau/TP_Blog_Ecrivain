@@ -15,13 +15,18 @@ function admin()
 
 }
 
-function listPostsAdmin()
+function showListPostByPageAdmin($page)
 {
-    $adminPostManager = new \AnthonyGalerneau\Blog\Model\PostManager(); 
-    $posts = $adminPostManager->getPosts(); 
-
-    require('view/admin/listPostsViewAdmin.php');
+    $postManager = new \AnthonyGalerneau\Blog\Model\PostManager();
+    $articlesTotals = $postManager->nbpost();
+    $pagesTotales = ceil($articlesTotals/4);
+    if ($page<=$pagesTotales) {
+        $depart = ($page-1)*4;
+        $posts = $postManager->getPostByPage($depart);
+        require ('view/admin/listPostsViewAdmin.php');
+    }
 }
+
 
 function modifPost($id)
 {

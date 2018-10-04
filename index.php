@@ -1,5 +1,5 @@
-
 <?php
+
 
 session_start();
 
@@ -15,10 +15,17 @@ try {
         elseif ($_GET['action'] == 'logout') {
             session_start();
             session_destroy();
-            header('Location: /');
+            header('Location: index.php');
         }
         elseif ($_GET['action'] == 'listPosts') {
-            listPosts();
+            if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page']>0)
+            {
+                $page = intval($_GET['page']);
+                $pageCourante = $page;
+            } else{
+                $pageCourante = 1;
+            }
+            showListPostByPage($pageCourante);
         }
         elseif ($_GET['action'] == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -73,7 +80,14 @@ try {
             admin();     
         }
         elseif ($_GET['action'] == 'listPostsAdmin') {
-            listPostsAdmin();
+            if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page']>0)
+            {
+                $page = intval($_GET['page']);
+                $pageCourante = $page;
+            } else{
+                $pageCourante = 1;
+            }
+            showListPostByPageAdmin($pageCourante);
         }
         elseif ($_GET['action'] == 'modifPostAdmin') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -170,7 +184,14 @@ try {
         }
        
     } else {
-        listPosts();
+        if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page']>0)
+        {
+            $page = intval($_GET['page']);
+            $pageCourante = $page;
+        } else{
+            $pageCourante = 1;
+        }
+        showListPostByPage($pageCourante);
     }  
 }
 catch(Exception $e) { // S'il y a eu une erreur, alors...

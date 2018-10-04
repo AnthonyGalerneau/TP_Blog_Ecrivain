@@ -51,13 +51,13 @@
 
     <div id="formComment">
         <form action="/addComment<?= $post['id'] ?>" method="post">
-    	<p><label for="author"> Pseudo :</label></p>
+        <p><label for="author"> Pseudo :</label></p>
         <input type="text" name="author" id="author" />
-    	<p><label for="comment">  Commentaire : </label></p>
+        <p><label for="comment">  Commentaire : </label></p>
         <textarea name="comment" rows="5" cols="50" id="comment"></textarea><br>
-    	<button type="submit"/>Commenter</button> 
-    	<input type="hidden" for="comment_date" name="comment_date" id="comment_date value="<?php echo '' . time();?>" /> 
-    	<input for="id_post" type="hidden" name="id_post" id="id_post" value="<?php echo $_GET['post']; ?>" />  
+        <button type="submit"/>Commenter</button> 
+        <input type="hidden" for="comment_date" name="comment_date" id="comment_date value="<?php echo '' . time();?>" /> 
+        <input for="id_post" type="hidden" name="id_post" id="id_post" value="<?php echo $_GET['post']; ?>" />  
     </form>
 </div>
 <?php $content = ob_get_clean(); ?>

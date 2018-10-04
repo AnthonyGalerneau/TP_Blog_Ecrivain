@@ -4,8 +4,8 @@
 <?php ob_start(); ?>
 
 <header>
-    <div class="imageHeader" style="background-image:url(public/img/header.jpg)">
-        <img src="public/img/header.jpg">
+    <div class="imageHeader" style="background-image:url(/public/img/header.jpg)">
+        <img src="/public/img/header.jpg">
     </div>
     <div class="titre">
         <h1>Billet simple pour l'Alaska</h1>
@@ -34,34 +34,44 @@
 </div>
 
 <div id="articles">
-<?php
-while ($data = $posts->fetch())
-{
-    $extrait = substr($data['content'], 0,50);
-    $space = strrpos($extrait, ' ');
-?>
+    <?php
+    while ($data = $posts->fetch())
+    {
+        $extrait = substr($data['content'], 0,50);
+        $space = strrpos($extrait, ' ');
+    ?>
     <div class="news">
-        <div class="imageBilletAccueil" style="background-image:url(<?= $data['image'] ?>)">
-            <img src="<?= $data['image'] ?>">
-        </div>
+        <a href="/billet/<?= $data['id'] ?>">
+            <div class="imageBilletAccueil" style="background-image:url(/<?= $data['image'] ?>)">
+                <img src="</?= $data['image'] ?>">
+            </div>
+        </a>
         <div class="extraitBilletAccueil">
             <h3>
-            <a href="billet/<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a>
+            <a href="/billet/<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a>
             </h3>
             <p class="date">
                 <em>le <?= $data['creation_date_fr'] ?></em>
             </p>
-            
             <p>"<?= nl2br(htmlspecialchars(substr($extrait, 0, $space).'...')) ?>"</p>
-           
-            <p><em><a href="billet/<?= $data['id'] ?>">Lire la suite</a></em></p>
-            
+            <p><em><a href="/billet/<?= $data['id'] ?>">Lire la suite</a></em></p> 
         </div>
     </div>
-<?php
-}
-$posts->closeCursor();
-?>
+    <?php
+    }
+    $posts->closeCursor();
+    ?>
+</div>
+<div class="pagination">
+    <?php
+    for($i=1;$i<=$pagesTotales;$i++){
+        if ($i == $page) {
+            echo '<p>'.$i.' </p>';
+        } else {
+            echo '<div class="lien"><p><a href="/page/'.$i.'">'.$i.'</a></p></div>';
+        }
+    }
+    ?>
 </div>
 <?php $content = ob_get_clean(); ?>
 
