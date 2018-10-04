@@ -15,8 +15,6 @@ h1, h2, h3, p{
 	text-align: center;
 }
 
-
-
 h3{
 	font-size: 18px;
 }
@@ -145,6 +143,33 @@ header hr{
 .news .extraitBilletAccueil .date{
 	margin-top: -15px;
 	font-size: 12px;
+}
+
+.pagination{
+	margin: auto;
+	width: 50%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.pagination a{
+	text-decoration: none;
+	color: #c2d6f6;
+	
+}
+
+.pagination .lien p{
+	
+	font-size: 25px;
+	background-color: white;
+}
+
+.pagination p{
+	background-color: #1863a2;
+	color: #c2d6f6;
+	font-size: 25px;
+	padding: 5px 10px;
 }
 
 
