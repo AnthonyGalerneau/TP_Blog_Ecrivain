@@ -110,7 +110,7 @@ function login()
                 echo '<p>Vous êtes connecté !</p>';
             }
             else {
-                echo '<p>Mauvais identifiant ou mot de passe !</p>';
+                header('Location: Erreur-401');
             }
         }
     }

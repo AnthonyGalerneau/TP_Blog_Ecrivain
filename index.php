@@ -33,7 +33,7 @@ try {
             }
             else {
                  // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
-                throw new Exception('Aucun identifiant de billet envoyé');
+                header('Location: /erreur-404');
             }
         }
         elseif ($_GET['action'] == 'addComment') {
@@ -46,7 +46,7 @@ try {
                 }
             }
             else {
-                 throw new Exception('Aucun identifiant de billet envoyé');
+                 header('Location: /erreur-404');
             }
         }
         elseif ($_GET['action'] == 'modifComment') {
@@ -54,10 +54,10 @@ try {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     modifComment($_GET['postId'], $_GET['id']);
                 } else {
-                    throw new Exception('Aucun identifiant de commentaire envoyé');
+                    header('Location: /erreur-404');
                 }
             } else {
-                throw new Exception('Aucun identifiant de billet envoyé');
+                header('Location: /erreur-404');
             }
         }
         elseif ($_GET['action'] == 'addModifComment') {
@@ -69,10 +69,10 @@ try {
                         throw new Exception('Tous les champs ne sont pas remplis !');
                     }
                 } else {
-                    throw new Exception('Aucun identifiant de commentaire envoyé');
+                    header('Location: /erreur-404');
                 }
             } else {
-                throw new Exception('Aucun identifiant de billet envoyé');
+                header('Location: /erreur-404');
             }
         }
         elseif ($_GET['action'] == 'admin')
@@ -93,7 +93,7 @@ try {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 modifPost($_GET['id']);
             } else {
-                throw new Exception('Aucun identifiant de billet envoyé');
+                header('Location: /erreur-404');
             }  
         }
         elseif ($_GET['action'] == 'addModifPost') 
@@ -119,7 +119,7 @@ try {
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
             } else {
-                throw new Exception('Aucun identifiant de billet envoyé');
+                header('Location: /erreur-404');
             }  
         }
 
