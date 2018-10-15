@@ -13,22 +13,18 @@
         <h2>Jean Forteroche</h2>
     </div>  
 </header> 
-
 <div id="Edito">
     <div class="titreAccueil">
         <h2>Bienvenue</h2>
     </div>
-
     <div class="texteEdito">
         <p>Je vous souhaites la bienvenue sur ce blog créé pour la diffusion du nouveau Roman de Jean Forteroche. <br>
         Jean travaille actuellement sur la sortie de son nouvel ouvrage "Billet simple pour l'Alaska" et il a décidé de vous le faire partager, chapitre par chapitre, au moyen de ce blog. <br>
         N'hésitez pas à laisser vos commentaires à la partion de chaque épisode, Jean se fera un plaisir de vous répondre et pourquoi pas de prendre en compte vos suggestions por les chapitres suivant.</p>
         <br>
         <p>Bonne lecture à toutes et à tous !</p>
-    </div>
-    
+    </div> 
 </div>
-
 <div class="titreAccueil">
     <h2>Derniers billets du blog</h2>
 </div>

@@ -17,7 +17,6 @@
         <p class="deletePost"><a href="/supprimer-billet-<?=$post['id'] ?>">Supprimer Le billet</a></p>
         <p>Changer image :</p>
         <p><img style= "max-width: 100px; max-height: 100px;" src="/<?= $post['image'] ?>"></p>
-
         <p><label for="image">(jpg, jpeg, gif, png | max. 2 Mo) :</label><br />
         <input type="hidden" name="MAX_FILE_SIZE" value="2097152" /><br />
         <input  class="file" type="file" name="image" id="image" /></p>

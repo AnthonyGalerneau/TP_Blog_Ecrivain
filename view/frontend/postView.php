@@ -11,8 +11,6 @@
         <h2>Jean Forteroche</h2>
     </div>  
 </header> 
-
-
 <div class="lienRetour">
     <p><a href="/">Retour à la liste des billets</a></p>
 </div>
@@ -38,7 +36,7 @@
     ?>
         <div class="affichComment">
             <div class="headComment">
-                <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?> <a href="/billet/<?= $post['id'] ?>/modifier-commentaire/<?= $comment['id'] ?>">(modifier)</a></p>
+                <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?> <!--<a href="/billet/<?= $post['id'] ?>/modifier-commentaire/<?= $comment['id'] ?>">(modifier)</a>--></p> 
             </div>
             <div class="contentComment">
                 <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
@@ -48,7 +46,6 @@
     <?php
     }
     ?>
-
     <div id="formComment">
         <form action="/addComment<?= $post['id'] ?>" method="post">
         <p><label for="author"> Pseudo :</label></p>

@@ -25,7 +25,6 @@
                 <p class="date">
                     <em>le <?= $data['creation_date_fr'] ?></em>
                 </p>
-                
                 <p>"<?= nl2br(htmlspecialchars(substr($extrait, 0, $space).'...')) ?>"</p>
                 <p><em><a href="/editer-billet/billet/<?= $data['id'] ?>">Editer</a></em></p>
             </div>

@@ -15,10 +15,8 @@ $title = 'Modifier le commentaire'; ?>
 <div class="lienRetour">
 	<p><a href="/billet/<?= $post['id'] ?>">Retour au billet</a></p>
 </div>
- 
 <div class="editComment">
 	<h2>Editer le commentaire</h2>
-	 
 	<form action="/billet-<?=$post['id']?>-add-modif-comment-<?=$comment['id']?>" method="post">
 			<p><label for="author"> Pseudo :</label></p>
 			<p><input type="text" name="author" id="author" value="<?php echo $comment['author'] ?>"></p>
@@ -31,6 +29,5 @@ $title = 'Modifier le commentaire'; ?>
 </div>
 <?php
 $content = ob_get_clean(); ?>
- 
 <?php require('view/frontend/template.php'); ?>
 

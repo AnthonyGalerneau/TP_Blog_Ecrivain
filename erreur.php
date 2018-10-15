@@ -12,7 +12,6 @@ $title = htmlspecialchars('Connexion'); ?>
         <h2>Jean Forteroche</h2>
     </div>  
 </header> 
-
 <div class="lienRetour">
     <p><a href="/">Retour à la liste des billets</a></p>
 </div>

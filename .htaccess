@@ -80,10 +80,9 @@ RewriteRule ^valider-commentaires-([0-9]+)$ index.php?action=validComment&valid=
 
 RewriteRule ^supprimer-commentaires-([0-9]+)$ index.php?action=deleteComment&delete=$1 [L]
 
-
 #Page Erreur
 
-RewriteRule ^Erreur-([0-9]+)$ /erreur.php?erreur=$1 [L]
+RewriteRule ^erreur-([0-9]+)$ erreur.php?erreur=$1 [L]
 
 
 

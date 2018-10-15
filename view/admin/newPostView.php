@@ -8,10 +8,7 @@
 	</div>
 	 
 	<h2>Créer un nouveau billet</h2>
-
-
 	<div id="formulaire_commentaire">
-
 	    <form action="/add-nouveau-billet" method="post" enctype="multipart/form-data">
 		    <p><label for="title"> Titre :</label> <br>
 		    	<input type="text" name="title" id="title" /></p>

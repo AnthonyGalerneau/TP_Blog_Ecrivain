@@ -9,21 +9,13 @@ $title = htmlspecialchars('Admin'); ?>
 		?>
 	</div>
 
-	 <h1>Bienvenue dans l'administration du Blog !</h1>
-
-	<?php
-	
-		
-
-	?>
+	<h1>Bienvenue dans l'administration du Blog !</h1>
 	<div class="menuAdmin">
 	    <h2>Ici vous pouvez :</h2>
 	    <div class="menuAdminChoix">
 		    <h3><a href="/nouveau-billet">Créer un nouveau billet</a></h3>
 		    <h3><a href="/editer-billets">Editer vos Billets</a></h3>
 		    <h3><a href="/moderer-commentaires">Modérer les commentaires <div class="moderer"><?php echo $comments['nb_comment_report'] ?></div></a></h3>
-
-
 		</div>
 	</div>
 </div>

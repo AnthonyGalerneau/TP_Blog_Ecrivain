@@ -4,8 +4,7 @@
         <meta charset="utf-8" />
         <title><?= 'Jean Forteroche - ' . $title ?></title>
         <link href="/public/css/style.css" rel="stylesheet" /> 
-    </head>
-        
+    </head> 
     <body>
         <?php
         if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
@@ -21,9 +20,7 @@
                     <h2>Admin - Jean Forteroche</h2>
                 </div>  
             </header> 
-       
             <?=  $content ?>
-
             <footer>
                 <div class="login">
                     <?php
@@ -38,8 +35,7 @@
                        <p><a href="/logout">Déconnexion</a></p>
                    <?php
                     }
-                    ?>
-                    
+                    ?> 
                 </div>
             </footer>
         <?php 

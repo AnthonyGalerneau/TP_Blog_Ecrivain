@@ -12,6 +12,7 @@ class PostManager extends Manager
         $req = $db->query('SELECT id, title, content, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0,4');
         return $req;
     }
+
     public function nbpost()
     {
         $db = $this->dbConnect();
@@ -23,7 +24,8 @@ class PostManager extends Manager
     public function getPostByPage($depart)
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, title, content, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT '.$depart.',4');
+        $req = $db->prepare('SELECT id, title, content, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT '.$depart.',4');
+        $req->execute(array($depart));
         return $req;
     }
 
@@ -33,13 +35,12 @@ class PostManager extends Manager
         $req = $db->prepare('SELECT id, title, content, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts WHERE id = ?');
         $req->execute(array($postId));
         $post = $req->fetch();
-
         return $post;
     }
 
     public function getModifPost($id)
     {
-       $db = $this->dbConnect();
+        $db = $this->dbConnect();
         $post = $db->prepare('SELECT id, title, content, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
         $post->execute(array($id));
         return $post;
@@ -78,7 +79,6 @@ class PostManager extends Manager
         $extension_upload = strtolower(substr(strrchr($_FILES['image']['name'],'.'),1));
         $nameImg='public/img/'.basename("image".time().".".$extension_upload);
         $affectedLines = $post->execute(array($id, $title, $content, $nameImg));
-
         return $affectedLines;
     }
 }

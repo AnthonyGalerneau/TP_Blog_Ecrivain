@@ -1,13 +1,10 @@
 <?php
-
-
 session_start();
 
 require('controller/frontend.php');
 require('controller/backend.php');
 
 try {
-
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'login') {
             login();
@@ -18,7 +15,7 @@ try {
             header('Location: index.php');
         }
         elseif ($_GET['action'] == 'listPosts') {
-            if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page']>0)
+            if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page']>0 AND $_GET['page'] <= 2)
             {
                 $page = intval($_GET['page']);
                 $pageCourante = $page;
@@ -122,7 +119,6 @@ try {
                 header('Location: /erreur-404');
             }  
         }
-
         elseif ($_GET['action'] == 'newPost') {
             newPost(); 
         }
@@ -151,7 +147,7 @@ try {
                 deletePost();
             } else 
             { 
-                throw new Exception('Non !');
+                throw new Exception('Le billet ne peut pas être supprimé !');
             }
         }
         elseif ($_GET['action'] == 'reportComment') {
@@ -159,7 +155,7 @@ try {
                 moderate();
             } else 
             { 
-                throw new Exception('Non !');
+                throw new Exception('Le commentaire ne peut pas être modéré !');
             }
         }
         elseif ($_GET['action'] == 'moderateComment')
@@ -171,7 +167,7 @@ try {
                 validComment();
             } else 
             { 
-                throw new Exception('Non !');
+                throw new Exception('Le commentaire ne peut pas être validé !');
             }
         }
         elseif ($_GET['action'] == 'deleteComment') {
@@ -179,10 +175,9 @@ try {
                 deleteComment();
             } else 
             { 
-                throw new Exception('Non !');
+                throw new Exception('Le commentaire ne peut pas être supprimé !');
             }
         }
-       
     } else {
         if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page']>0)
         {

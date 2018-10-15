@@ -35,10 +35,8 @@ function post()
 {
     $postManager = new \AnthonyGalerneau\Blog\Model\PostManager();
     $commentManager = new \AnthonyGalerneau\Blog\Model\CommentManager();
-
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
-
     require('view/frontend/postView.php');
 }
 
@@ -46,9 +44,7 @@ function post()
 function addComment($postId, $author, $comment)
 {
     $commentManager = new \AnthonyGalerneau\Blog\Model\CommentManager();
-
     $affectedLines = $commentManager->postComment($postId, $author, $comment);
-
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter le commentaire !');
     }
@@ -61,7 +57,6 @@ function modifComment($postId, $id)
 {
     $commentManager = new \AnthonyGalerneau\Blog\Model\CommentManager();
     $postManager = new \AnthonyGalerneau\Blog\Model\PostManager();
-
     $modifComment = $commentManager->getModifComment($postId, $id);
     $post = $postManager->getPost($postId);
     $comment = $modifComment->fetch();
@@ -78,9 +73,8 @@ function addModifComment($postId, $id, $author, $comment)
 {
     $commentManager = new \AnthonyGalerneau\Blog\Model\CommentManager();
     $req = $commentManager->addModifComment($postId, $id, $author, $comment); 
-
-   if ($req === false) 
-   {
+    if ($req === false) 
+    {
         throw new Exception('Impossible de modifier le commentaire !');
     } else 
     {
@@ -92,14 +86,13 @@ function login()
 {
     $connexionManager = new \AnthonyGalerneau\Blog\Model\ConnexionManager();
     $resultat = $connexionManager->getLog(); 
- 
     if (isset($_POST['pseudo']) && isset($_POST['pass'])) 
     {   
         // Comparaison du pass envoyé via le formulaire avec la base
         $isPasswordCorrect = password_verify($_POST['pass'], $resultat['pass']);
         if (!$resultat)
         {
-            echo '<p>Mauvais identifiant ou mot de passe !<br> <a href="/"> essayez à nouveau</a></p>';
+            header('Location: /erreur-401');
         }
         else
         {
@@ -110,7 +103,7 @@ function login()
                 echo '<p>Vous êtes connecté !</p>';
             }
             else {
-                header('Location: Erreur-401');
+                header('Location: /erreur-401');
             }
         }
     }

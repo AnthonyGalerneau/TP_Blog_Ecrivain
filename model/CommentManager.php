@@ -11,7 +11,6 @@ class CommentManager extends Manager
 	    $db = $this->dbConnect();
 	    $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments WHERE id_post = ? ORDER BY comment_date DESC LIMIT 0, 5');
 	    $comments->execute(array($postId));
-
 	    return $comments;
 	}
 
@@ -20,7 +19,6 @@ class CommentManager extends Manager
 	    $db = $this->dbConnect();
 	    $comments = $db->prepare('INSERT INTO comments(id_post, author, comment, comment_date) VALUES(?, ?, ?, NOW())');
 	    $affectedLines = $comments->execute(array($postId, $author, $comment));
-
 	    return $affectedLines;
 	}
 
@@ -53,7 +51,6 @@ class CommentManager extends Manager
 	    $comments = $db->query('SELECT COUNT(*) AS nb_comment_report FROM comments WHERE moderate = "1"');
 	    $data = $comments->fetch();
 	    return $data;
-
 	}
 
     public function getCommentsReportAdmin()
@@ -61,7 +58,6 @@ class CommentManager extends Manager
 	    $db = $this->dbConnect();
 	    $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr, moderate FROM comments WHERE moderate = "1" ORDER BY comment_date');
 	    $comments->execute(array());
-
 	    return $comments;
 	}
 
@@ -70,7 +66,6 @@ class CommentManager extends Manager
 	    $db = $this->dbConnect();
 	    $otherComments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr, moderate FROM comments WHERE moderate = "0" ORDER BY comment_date DESC');
 	    $otherComments->execute(array());
-
 	    return $otherComments;
 	}
 
@@ -79,8 +74,7 @@ class CommentManager extends Manager
 		$valid = (int) $_GET['valid'];
 	    $db = $this->dbConnect();
 	    $req = $db->prepare('UPDATE comments SET moderate = 0 WHERE id = ?');
-	    $req->execute(array($valid));
-	    
+	    $req->execute(array($valid));  
 	}
 
 	public function deleteComment()
@@ -88,7 +82,6 @@ class CommentManager extends Manager
 		$delete = (int) $_GET['delete'];
 	    $db = $this->dbConnect();
 	    $req = $db->prepare('DELETE FROM comments WHERE id = ?');
-	    $req->execute(array($delete));
-	    
+	    $req->execute(array($delete));   
 	}
 }

@@ -8,7 +8,6 @@
  
 <div class="comment">
 	<h2>Modérer les commentaires</h2>
-
 	<h3>Les commentaires suivant ont été signalé :</h3>
 	<?php
 	while ($comment = $comments->fetch())
@@ -23,7 +22,6 @@
 		    <p><a class="valid" href="/valider-commentaires-<?=$comment['id'] ?>">Valider</a> - <a class="supp" href="supprimer-commentaires-<?=$comment['id'] ?>">Supprimer</a></p>
 		</div>
 	</div>
-
 	<?php
 	}
 	?>
@@ -32,7 +30,6 @@
 	while ($otherComment = $otherComments->fetch())
 	{
 	?>
-
 	<div class="affichComment">
 	    <div class="headComment">
 		    <p><strong><?= htmlspecialchars($otherComment['author']) ?></strong> le <?= $otherComment['comment_date_fr'] ?></p>
@@ -44,7 +41,7 @@
 	</div>
 	<?php
 	}
-?>
+	?>
 </div>
 <?php
 $content = ob_get_clean(); ?>

@@ -16,9 +16,7 @@ class ConnexionManager extends Manager
 	        $req->execute(array(
 	            'pseudo' => htmlspecialchars($_POST['pseudo'])));
 	        $resultat = $req->fetch();
-
 	        return $resultat;
-
     	}
 	}
 }

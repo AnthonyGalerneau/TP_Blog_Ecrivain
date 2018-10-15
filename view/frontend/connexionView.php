@@ -11,7 +11,6 @@ $title = htmlspecialchars('Connexion'); ?>
 else
 {
 ?>
-
 <div class="loginTitre">
     <h1>Billet simple pour l'Alaska</h1>
     <hr>
@@ -33,12 +32,8 @@ else
         <p><button type="submit">Se connecter</button></p>
     </form>
 </div>
-
 <?php 
 }
 ?>
-    
-
 <?php $content = ob_get_clean(); ?>
-
 <?php require('view/frontend/template.php'); ?>
